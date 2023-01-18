@@ -1,10 +1,12 @@
 package com.epam.rd.autotasks;
 
 public class CompleteByRequestTask implements Task {
-
+    boolean isCompleted;
     @Override
     public void execute() {
-        throw new UnsupportedOperationException();
+        if (isCompleted){
+            isFinished();
+        }
     }
 
     @Override
@@ -13,6 +15,6 @@ public class CompleteByRequestTask implements Task {
     }
 
     public void complete() {
-        throw new UnsupportedOperationException();
+        isCompleted = true;
     }
 }

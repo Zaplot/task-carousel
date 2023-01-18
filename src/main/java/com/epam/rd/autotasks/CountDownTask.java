@@ -1,23 +1,29 @@
 package com.epam.rd.autotasks;
 
 public class CountDownTask implements Task{
-
+    private static int initialValueOfTheCountdown;
     public CountDownTask(int value) {
-        throw new UnsupportedOperationException();
+        initialValueOfTheCountdown = Math.max(value, 0);
+        if (value == 0){isFinished();}
     }
 
     public int getValue() {
-        throw new UnsupportedOperationException();
+        return initialValueOfTheCountdown;
     }
 
 
     @Override
     public void execute() {
-        throw new UnsupportedOperationException();
+        if (initialValueOfTheCountdown >= 0){
+            initialValueOfTheCountdown--;
+        } else {
+            initialValueOfTheCountdown = 0;
+            isFinished();
+        }
     }
 
     @Override
     public boolean isFinished() {
-        throw new UnsupportedOperationException();
+        return initialValueOfTheCountdown == 0;
     }
 }
